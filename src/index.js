@@ -1,7 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-	<div>Moview Master</div>,
-	document.getElementById("root")
-)
+function a(
+  dasdjhjasdn,
+  fhasiouhuashd,
+  ifjioasjdioasjd,
+  iajsdioasjdoiasjd,
+  ajsdoasjdiosa,
+  sjdoajsdioasjdios
+) {}
+
+ReactDOM.render(<div>Moview Master</div>, document.getElementById("root"));
