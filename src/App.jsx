@@ -63,7 +63,7 @@ class App extends Component {
                     src={
                       movie.poster_path
                         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                        : '/movie_alt.svg'
+                        : '/movie-master/movie_alt.svg'
                     }
                   />
                   <div className="Gallery-movie-card-title">{movie.title}</div>
