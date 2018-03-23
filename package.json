@@ -2,6 +2,7 @@
   "name": "movie_master",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://harry1064.github.io/movie-master",
   "dependencies": {
     "onchange": "^3.3.0",
     "react": "^16.2.0",
