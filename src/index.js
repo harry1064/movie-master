@@ -1,13 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-function a(
-  dasdjhjasdn,
-  fhasiouhuashd,
-  ifjioasjdioasjd,
-  iajsdioasjdoiasjd,
-  ajsdoasjdiosa,
-  sjdoajsdioasjdios
-) {}
-
-ReactDOM.render(<div>Moview Master</div>, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));
