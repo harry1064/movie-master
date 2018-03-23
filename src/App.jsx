@@ -21,7 +21,6 @@ class App extends Component {
 
   searchButtonClicked(event) {
     event.preventDefault();
-    console.log('this.state', this.state);
     const SEARCH_MOVIES_URL = `
 		https://api.themoviedb.org/3/search/movie?api_key=6eaf1be79a07c4258e4eed732dfbb9a2&language=en-US&query=${
       this.state.query
@@ -31,7 +30,6 @@ class App extends Component {
         return response.json();
       })
       .then(result => {
-        console.log('result', result);
         this.setState({
           movies: result.results
         });
