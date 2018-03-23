@@ -15,7 +15,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "pretty-quick --staged",
-    "prettier-watch": "onchange 'src/**' -- prettier --write {{changed}}"
+    "prettier-watch": "onchange 'src/**' -- prettier --write {{changed}}",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "husky": "^0.14.3",
