@@ -82,7 +82,11 @@ class App extends Component {
                   <img
                     className="Gallery-movie-card-image"
                     alt=""
-                    onerror="this.src='/movie_alt.svg';"
+                    onerror={event => {
+                      event.target.src = `${
+                        process.env.PUBLIC_URL
+                      }/movie_alt.svg`;
+                    }}
                     src={
                       movie.poster_path
                         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
