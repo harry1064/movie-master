@@ -12,6 +12,9 @@ class App extends Component {
       isFetchingMovies: false
     };
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
+    this.handleEnterKeyPressForSearchControl = this.handleEnterKeyPressForSearchControl.bind(
+      this
+    );
   }
 
   onSearchBoxInputChange(event) {
@@ -23,6 +26,10 @@ class App extends Component {
 
   searchButtonClicked(event) {
     event.preventDefault();
+    this._fetchMovies();
+  }
+
+  _fetchMovies() {
     const SEARCH_MOVIES_URL = `
 		https://api.themoviedb.org/3/search/movie?api_key=6eaf1be79a07c4258e4eed732dfbb9a2&language=en-US&query=${
       this.state.query
@@ -42,8 +49,14 @@ class App extends Component {
       });
   }
 
+  handleEnterKeyPressForSearchControl(event) {
+    if (event.key === 'Enter') {
+      this._fetchMovies();
+    }
+  }
+
   render() {
-    let { isFetchingMovies } = this.state;
+    let { isFetchingMovies, query } = this.state;
     return (
       <div className="App">
         <div className="App-title">Movie Master</div>
@@ -51,7 +64,9 @@ class App extends Component {
           <InputGroup>
             <FormControl
               placeholder="Search movie"
+              value={query}
               onChange={event => this.onSearchBoxInputChange(event)}
+              onKeyPress={this.handleEnterKeyPressForSearchControl}
             />
             <InputGroup.Addon onClick={this.searchButtonClicked}>
               <Glyphicon glyph="search" />
