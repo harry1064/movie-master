@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import Loader from './Loader';
 import './css/App.css';
 
 class App extends Component {
@@ -7,7 +8,8 @@ class App extends Component {
     super(props);
     this.state = {
       query: '',
-      movies: null
+      movies: null,
+      isFetchingMovies: false
     };
     this.searchButtonClicked = this.searchButtonClicked.bind(this);
   }
@@ -25,18 +27,23 @@ class App extends Component {
 		https://api.themoviedb.org/3/search/movie?api_key=6eaf1be79a07c4258e4eed732dfbb9a2&language=en-US&query=${
       this.state.query
     }&page=1&include_adult=false`;
+    this.setState({
+      isFetchingMovies: true
+    });
     fetch(SEARCH_MOVIES_URL)
       .then(response => {
         return response.json();
       })
       .then(result => {
         this.setState({
-          movies: result.results
+          movies: result.results,
+          isFetchingMovies: false
         });
       });
   }
 
   render() {
+    let { isFetchingMovies } = this.state;
     return (
       <div className="App">
         <div className="App-title">Movie Master</div>
@@ -51,6 +58,7 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
+        {isFetchingMovies && <Loader />}
         <div className="Gallery">
           {this.state.movies &&
             this.state.movies.map(movie => {
