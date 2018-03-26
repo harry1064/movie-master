@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Loader extends Component {
   render() {
     return (
-      <div class="lds-ripple">
+      <div className="lds-ripple">
         <div />
         <div />
       </div>
